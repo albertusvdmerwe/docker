@@ -6,7 +6,7 @@ before_install:
   - docker build -t albertvdm/ui -f ./ui/Dockerfile.dev ./ui
 
 scripts:
-  - docker run -t albertvdm/ui npm run tests -- --coverage
+  - docker run -t albertvdm/ui npm run test -- --coverage
 
 #Login to docker and push
 
