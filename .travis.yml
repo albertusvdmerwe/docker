@@ -3,13 +3,14 @@ services:
   - docker
 
 before_install:
-  - docker build -t albertvdm/ui -f ./ui/Dockerfile.dev ./ui
+  - docker build -t albertvdm/ui-dev -f ./ui/Dockerfile.dev ./ui
 
 scripts:
-  - docker run -t albertvdm/ui npm run test -- --coverage
+  - docker run albertvdm/ui-dev npm run test -- --coverage
 
 #Login to docker and push
 
 after_success:
+  - docker build -t albertvdm/ui-prod -f ./ui/Dockerfile ./ui
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push albertvdm/ui
