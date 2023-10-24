@@ -6,7 +6,7 @@ before_install:
   - docker build -t albertvdm/ui-dev -f ./ui/Dockerfile.dev ./ui
 
 scripts:
-  - docker run albertvdm/ui-dev npm run test --forceExit --coverage
+  - docker run albertvdm/ui-dev npm run test --coverage
 
 after_success:
   - docker build -t albertvdm/ui-prod -f ./ui/Dockerfile ./ui
