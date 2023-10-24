@@ -11,4 +11,4 @@ scripts:
 after_success:
   - docker build -t albertvdm/ui-prod -f ./ui/Dockerfile ./ui
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push albertvdm/ui
+  - docker push albertvdm/ui-prod
